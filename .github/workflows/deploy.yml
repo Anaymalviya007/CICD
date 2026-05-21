@@ -57,6 +57,11 @@ jobs:
             --task-definition hello-world-task \
             --query taskDefinition > task-definition.json
 
+      - name: Clean task definition
+        run: |
+          jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy, .enableFaultInjection)' task-definition.json > task-definition-clean.json
+          mv task-definition-clean.json task-definition.json
+
       - name: Update image in task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
