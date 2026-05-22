@@ -7,10 +7,10 @@ on:
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
-  ECR_REPOSITORY: hello-world
+  ECR_REPOSITORY: hello-world-app
   ECS_CLUSTER: hello-world-cluster-test
-  ECS_SERVICE: hello-world-service
-  CONTAINER_NAME: hello-world-container-test
+  ECS_SERVICE: test-task-service
+  CONTAINER_NAME: hello-world0container-test
 
 jobs:
   deploy:
